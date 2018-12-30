@@ -23,7 +23,8 @@ export default (state = initialState, action) => {
         case FETCH_FILMS_FULFILLED:
             return {
                 ...state,
-                films: action.payload,
+                films: action.payload.films,
+                totalFilmsCount: action.payload.totalFilmsCount,
                 fetching: false
             };
         case FETCH_FILMS_REJECTED:

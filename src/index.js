@@ -12,6 +12,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import logger from 'redux-logger'
 import reduxPromise from 'redux-promise-middleware';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 const store = createStore(
     rootReducer,
