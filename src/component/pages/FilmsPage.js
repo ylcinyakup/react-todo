@@ -19,12 +19,12 @@ class FilmsPage extends Component {
 
 
     componentDidMount() {
-        this.props.fetchFilms(this.state.page, this.state.pageSize, this.state.sortDirection, this.state.sortParameter);
+        this.props.fetchFilms(this.state.page, this.state.pageSize, this.state.sortDirection, this.state.sortParameter, this.props.loginReducer.token);
     }
 
     onPage = (event) => {
         console.log(event);
-        this.props.fetchFilms(parseInt(event.page), parseInt(event.rows), "", "");
+        this.props.fetchFilms(parseInt(event.page), parseInt(event.rows), "", "", this.props.loginReducer.token);
         this.setState({
             first: event.page * event.rows,
             page: event.page,
@@ -50,9 +50,11 @@ class FilmsPage extends Component {
         );
     }
 }
-const mapStateToProps = ({ filmsReducer }) => {
+
+const mapStateToProps = ({ filmsReducer, loginReducer }) => {
     return {
-        filmsReducer
+        filmsReducer,
+        loginReducer
     }
 };
 
